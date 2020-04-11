@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>RawVec - </title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="meet-safe-and-unsafe.html"><strong aria-hidden="true">1.</strong> Meet Safe and Unsafe</a></li><li><ol class="section"><li><a href="safe-unsafe-meaning.html"><strong aria-hidden="true">1.1.</strong> How Safe and Unsafe Interact</a></li><li><a href="what-unsafe-does.html"><strong aria-hidden="true">1.2.</strong> What Unsafe Can Do</a></li><li><a href="working-with-unsafe.html"><strong aria-hidden="true">1.3.</strong> Working with Unsafe</a></li></ol></li><li><a href="data.html"><strong aria-hidden="true">2.</strong> Data Layout</a></li><li><ol class="section"><li><a href="repr-rust.html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="exotic-sizes.html"><strong aria-hidden="true">2.2.</strong> Exotically Sized Types</a></li><li><a href="other-reprs.html"><strong aria-hidden="true">2.3.</strong> Other reprs</a></li></ol></li><li><a href="ownership.html"><strong aria-hidden="true">3.</strong> Ownership</a></li><li><ol class="section"><li><a href="references.html"><strong aria-hidden="true">3.1.</strong> References</a></li><li><a href="aliasing.html"><strong aria-hidden="true">3.2.</strong> Aliasing</a></li><li><a href="lifetimes.html"><strong aria-hidden="true">3.3.</strong> Lifetimes</a></li><li><a href="lifetime-mismatch.html"><strong aria-hidden="true">3.4.</strong> Limits of Lifetimes</a></li><li><a href="lifetime-elision.html"><strong aria-hidden="true">3.5.</strong> Lifetime Elision</a></li><li><a href="unbounded-lifetimes.html"><strong aria-hidden="true">3.6.</strong> Unbounded Lifetimes</a></li><li><a href="hrtb.html"><strong aria-hidden="true">3.7.</strong> Higher-Rank Trait Bounds</a></li><li><a href="subtyping.html"><strong aria-hidden="true">3.8.</strong> Subtyping and Variance</a></li><li><a href="dropck.html"><strong aria-hidden="true">3.9.</strong> Drop Check</a></li><li><a href="phantom-data.html"><strong aria-hidden="true">3.10.</strong> PhantomData</a></li><li><a href="borrow-splitting.html"><strong aria-hidden="true">3.11.</strong> Splitting Borrows</a></li></ol></li><li><a href="conversions.html"><strong aria-hidden="true">4.</strong> Type Conversions</a></li><li><ol class="section"><li><a href="coercions.html"><strong aria-hidden="true">4.1.</strong> Coercions</a></li><li><a href="dot-operator.html"><strong aria-hidden="true">4.2.</strong> The Dot Operator</a></li><li><a href="casts.html"><strong aria-hidden="true">4.3.</strong> Casts</a></li><li><a href="transmutes.html"><strong aria-hidden="true">4.4.</strong> Transmutes</a></li></ol></li><li><a href="uninitialized.html"><strong aria-hidden="true">5.</strong> Uninitialized Memory</a></li><li><ol class="section"><li><a href="checked-uninit.html"><strong aria-hidden="true">5.1.</strong> Checked</a></li><li><a href="drop-flags.html"><strong aria-hidden="true">5.2.</strong> Drop Flags</a></li><li><a href="unchecked-uninit.html"><strong aria-hidden="true">5.3.</strong> Unchecked</a></li></ol></li><li><a href="obrm.html"><strong aria-hidden="true">6.</strong> Ownership Based Resource Management</a></li><li><ol class="section"><li><a href="constructors.html"><strong aria-hidden="true">6.1.</strong> Constructors</a></li><li><a href="destructors.html"><strong aria-hidden="true">6.2.</strong> Destructors</a></li><li><a href="leaking.html"><strong aria-hidden="true">6.3.</strong> Leaking</a></li></ol></li><li><a href="unwinding.html"><strong aria-hidden="true">7.</strong> Unwinding</a></li><li><ol class="section"><li><a href="exception-safety.html"><strong aria-hidden="true">7.1.</strong> Exception Safety</a></li><li><a href="poisoning.html"><strong aria-hidden="true">7.2.</strong> Poisoning</a></li></ol></li><li><a href="concurrency.html"><strong aria-hidden="true">8.</strong> Concurrency</a></li><li><ol class="section"><li><a href="races.html"><strong aria-hidden="true">8.1.</strong> Races</a></li><li><a href="send-and-sync.html"><strong aria-hidden="true">8.2.</strong> Send and Sync</a></li><li><a href="atomics.html"><strong aria-hidden="true">8.3.</strong> Atomics</a></li></ol></li><li><a href="vec.html"><strong aria-hidden="true">9.</strong> Implementing Vec</a></li><li><ol class="section"><li><a href="vec-layout.html"><strong aria-hidden="true">9.1.</strong> Layout</a></li><li><a href="vec-alloc.html"><strong aria-hidden="true">9.2.</strong> Allocating</a></li><li><a href="vec-push-pop.html"><strong aria-hidden="true">9.3.</strong> Push and Pop</a></li><li><a href="vec-dealloc.html"><strong aria-hidden="true">9.4.</strong> Deallocating</a></li><li><a href="vec-deref.html"><strong aria-hidden="true">9.5.</strong> Deref</a></li><li><a href="vec-insert-remove.html"><strong aria-hidden="true">9.6.</strong> Insert and Remove</a></li><li><a href="vec-into-iter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="vec-raw.html" class="active"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="vec-drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="vec-zsts.html"><strong aria-hidden="true">9.10.</strong> Handling Zero-Sized Types</a></li><li><a href="vec-final.html"><strong aria-hidden="true">9.11.</strong> Final Code</a></li></ol></li><li><a href="arc-and-mutex.html"><strong aria-hidden="true">10.</strong> Implementing Arc and Mutex</a></li><li><a href="ffi.html"><strong aria-hidden="true">11.</strong> FFI</a></li><li><a href="beneath-std.html"><strong aria-hidden="true">12.</strong> Beneath std</a></li><li><ol class="section"><li><a href="panic-handler.html"><strong aria-hidden="true">12.1.</strong> #[panic_handler]</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="rawvec">RawVec</h1>
+<blockquote>
+<p>源-<a href="https://github.com/rust-lang-nursery/nomicon/blob/master/src/vec-raw.md">vec-raw.md</a>   Commit: e9335c82a2a73ad68f0516ff241c973dfa31ee16</p>
+</blockquote>
+<p>我们遇到了一个很有意思的情况：我们把初始化缓存和释放内存的逻辑在Vec和IntoIter里面一模一样地写了两次。现在我们已经实现了功能，而且发现了逻辑的重复，是时候对代码做一些压缩了。</p>
+<p>我们要抽象出<code>(ptr, cap)</code>，并赋予它们分配、扩容和释放的逻辑：</p>
+<pre><code class="language-Rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RawVec</span></span>&lt;T&gt; {
+    ptr: Unique&lt;T&gt;,
+    cap: <span class="hljs-built_in">usize</span>,
+}
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; RawVec&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
+        <span class="hljs-built_in">assert!</span>(mem::size_of::&lt;T&gt;() != <span class="hljs-number">0</span>, <span class="hljs-string">"TODO:实现零尺寸类型的支持"</span>);
+        RawVec { ptr: Unique::empty(), cap: <span class="hljs-number">0</span> }
+    }
+
+    <span class="hljs-comment">// 与Vec一样</span>
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">grow</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+        <span class="hljs-keyword">unsafe</span> {
+            <span class="hljs-keyword">let</span> align = mem::align_of::&lt;T&gt;();
+            <span class="hljs-keyword">let</span> elem_size = mem::size_of::&lt;T&gt;();
+
+            <span class="hljs-keyword">let</span> (new_cap, ptr) = <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cap == <span class="hljs-number">0</span> {
+                <span class="hljs-keyword">let</span> ptr = heap::allocate(elem_size, align);
+                (<span class="hljs-number">1</span>, ptr)
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">let</span> new_cap = <span class="hljs-number">2</span> * <span class="hljs-keyword">self</span>.cap;
+                <span class="hljs-keyword">let</span> ptr = heap::reallocate(<span class="hljs-keyword">self</span>.ptr.as_ptr() <span class="hljs-keyword">as</span> *<span class="hljs-keyword">mut</span> _,
+                                            <span class="hljs-keyword">self</span>.cap * elem_size,
+                                            new_cap * elem_size,
+                                            align);
+                (new_cap, ptr)
+            };
+
+            <span class="hljs-comment">// 如果分配或再分配失败，我们会得到null</span>
+            <span class="hljs-keyword">if</span> ptr.is_null() { oom() }
+
+            <span class="hljs-keyword">self</span>.ptr = Unique::new(ptr <span class="hljs-keyword">as</span> *<span class="hljs-keyword">mut</span> _);
+            <span class="hljs-keyword">self</span>.cap = new_cap;
+        }
+    }
+}
+
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> RawVec&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cap != <span class="hljs-number">0</span> {
+            <span class="hljs-keyword">let</span> align = mem::align_of::&lt;T&gt;();
+            <span class="hljs-keyword">let</span> elem_size = mem::size_of::&lt;T&gt;();
+            <span class="hljs-keyword">let</span> num_bytes = elem_size * <span class="hljs-keyword">self</span>.cap;
+            <span class="hljs-keyword">unsafe</span> {
+                heap::deallocate(<span class="hljs-keyword">self</span>.ptr.as_mut() <span class="hljs-keyword">as</span> *<span class="hljs-keyword">mut</span> _, num_bytes, align);
+            }
+        }
+    }
+}
+</div></code></pre>
+<p>然后像下面这样改写Vec：</p>
+<pre><code class="language-Rust"><div><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Vec</span></span>&lt;T&gt; {
+    buf: RawVec&lt;T&gt;,
+    len: <span class="hljs-built_in">usize</span>,
+}
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">ptr</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; *<span class="hljs-keyword">mut</span> T { <span class="hljs-keyword">self</span>.buf.ptr.as_ptr() }
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">cap</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">usize</span> { <span class="hljs-keyword">self</span>.buf.cap }
+
+    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
+        <span class="hljs-built_in">Vec</span> { buf: RawVec::new(), len: <span class="hljs-number">0</span> }
+    }
+
+    <span class="hljs-comment">// push/pop/insert/remove基本没变，只改变了:</span>
+    <span class="hljs-comment">// self.ptr -&gt; self.ptr()</span>
+    <span class="hljs-comment">// self.cap -&gt; self.cap()</span>
+    <span class="hljs-comment">// self.grow -&gt; self.buf.grow()</span>
+}
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">Some</span>(_) = <span class="hljs-keyword">self</span>.pop() {}
+        <span class="hljs-comment">// 释放空间由RawVec负责</span>
+    }
+}
+</div></code></pre>
+<p>最后我们可以简化IntoIter：</p>
+<pre><code class="language-Rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">IntoIter</span></span>&lt;T&gt; {
+    _buf: RawVec&lt;T&gt;, <span class="hljs-comment">// 我们并不关心这个，只是需要它们保持分配空间不被销毁</span>
+    start: *<span class="hljs-keyword">const</span> T,
+    end: *<span class="hljs-keyword">const</span> T,
+}
+
+<span class="hljs-comment">// next和next_back保持不变，因为它们并没有用到buf</span>
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> IntoIter&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+        <span class="hljs-comment">// 只需要保证所有的元素都被读到了</span>
+        <span class="hljs-comment">// 缓存会在随后自己清理自己</span>
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> &amp;<span class="hljs-keyword">mut</span> *<span class="hljs-keyword">self</span> {}
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">into_iter</span></span>(<span class="hljs-keyword">self</span>) -&gt; IntoIter&lt;T&gt; {
+        <span class="hljs-keyword">unsafe</span> {
+            <span class="hljs-comment">// 需要使用ptr::read非安全地把buf移出，因为它不是Copy，</span>
+            <span class="hljs-comment">// 而且Vec实现了Drop（所以我们不能销毁它）</span>
+            <span class="hljs-keyword">let</span> buf = ptr::read(&amp;<span class="hljs-keyword">self</span>.buf);
+            <span class="hljs-keyword">let</span> len = <span class="hljs-keyword">self</span>.len;
+            mem::forget(<span class="hljs-keyword">self</span>);
+
+            IntoIter {
+                start: *buf.ptr,
+                end: buf.ptr.offset(len <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>),
+                _buf: buf,
+            }
+        }
+    }
+}
+</div></code></pre>
+<p>现在看起来好多了。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="vec-into-iter.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="vec-drain.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="vec-into-iter.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="vec-drain.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

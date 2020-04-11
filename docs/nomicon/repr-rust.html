@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>repr(Rust) - </title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="meet-safe-and-unsafe.html"><strong aria-hidden="true">1.</strong> Meet Safe and Unsafe</a></li><li><ol class="section"><li><a href="safe-unsafe-meaning.html"><strong aria-hidden="true">1.1.</strong> How Safe and Unsafe Interact</a></li><li><a href="what-unsafe-does.html"><strong aria-hidden="true">1.2.</strong> What Unsafe Can Do</a></li><li><a href="working-with-unsafe.html"><strong aria-hidden="true">1.3.</strong> Working with Unsafe</a></li></ol></li><li><a href="data.html"><strong aria-hidden="true">2.</strong> Data Layout</a></li><li><ol class="section"><li><a href="repr-rust.html" class="active"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="exotic-sizes.html"><strong aria-hidden="true">2.2.</strong> Exotically Sized Types</a></li><li><a href="other-reprs.html"><strong aria-hidden="true">2.3.</strong> Other reprs</a></li></ol></li><li><a href="ownership.html"><strong aria-hidden="true">3.</strong> Ownership</a></li><li><ol class="section"><li><a href="references.html"><strong aria-hidden="true">3.1.</strong> References</a></li><li><a href="aliasing.html"><strong aria-hidden="true">3.2.</strong> Aliasing</a></li><li><a href="lifetimes.html"><strong aria-hidden="true">3.3.</strong> Lifetimes</a></li><li><a href="lifetime-mismatch.html"><strong aria-hidden="true">3.4.</strong> Limits of Lifetimes</a></li><li><a href="lifetime-elision.html"><strong aria-hidden="true">3.5.</strong> Lifetime Elision</a></li><li><a href="unbounded-lifetimes.html"><strong aria-hidden="true">3.6.</strong> Unbounded Lifetimes</a></li><li><a href="hrtb.html"><strong aria-hidden="true">3.7.</strong> Higher-Rank Trait Bounds</a></li><li><a href="subtyping.html"><strong aria-hidden="true">3.8.</strong> Subtyping and Variance</a></li><li><a href="dropck.html"><strong aria-hidden="true">3.9.</strong> Drop Check</a></li><li><a href="phantom-data.html"><strong aria-hidden="true">3.10.</strong> PhantomData</a></li><li><a href="borrow-splitting.html"><strong aria-hidden="true">3.11.</strong> Splitting Borrows</a></li></ol></li><li><a href="conversions.html"><strong aria-hidden="true">4.</strong> Type Conversions</a></li><li><ol class="section"><li><a href="coercions.html"><strong aria-hidden="true">4.1.</strong> Coercions</a></li><li><a href="dot-operator.html"><strong aria-hidden="true">4.2.</strong> The Dot Operator</a></li><li><a href="casts.html"><strong aria-hidden="true">4.3.</strong> Casts</a></li><li><a href="transmutes.html"><strong aria-hidden="true">4.4.</strong> Transmutes</a></li></ol></li><li><a href="uninitialized.html"><strong aria-hidden="true">5.</strong> Uninitialized Memory</a></li><li><ol class="section"><li><a href="checked-uninit.html"><strong aria-hidden="true">5.1.</strong> Checked</a></li><li><a href="drop-flags.html"><strong aria-hidden="true">5.2.</strong> Drop Flags</a></li><li><a href="unchecked-uninit.html"><strong aria-hidden="true">5.3.</strong> Unchecked</a></li></ol></li><li><a href="obrm.html"><strong aria-hidden="true">6.</strong> Ownership Based Resource Management</a></li><li><ol class="section"><li><a href="constructors.html"><strong aria-hidden="true">6.1.</strong> Constructors</a></li><li><a href="destructors.html"><strong aria-hidden="true">6.2.</strong> Destructors</a></li><li><a href="leaking.html"><strong aria-hidden="true">6.3.</strong> Leaking</a></li></ol></li><li><a href="unwinding.html"><strong aria-hidden="true">7.</strong> Unwinding</a></li><li><ol class="section"><li><a href="exception-safety.html"><strong aria-hidden="true">7.1.</strong> Exception Safety</a></li><li><a href="poisoning.html"><strong aria-hidden="true">7.2.</strong> Poisoning</a></li></ol></li><li><a href="concurrency.html"><strong aria-hidden="true">8.</strong> Concurrency</a></li><li><ol class="section"><li><a href="races.html"><strong aria-hidden="true">8.1.</strong> Races</a></li><li><a href="send-and-sync.html"><strong aria-hidden="true">8.2.</strong> Send and Sync</a></li><li><a href="atomics.html"><strong aria-hidden="true">8.3.</strong> Atomics</a></li></ol></li><li><a href="vec.html"><strong aria-hidden="true">9.</strong> Implementing Vec</a></li><li><ol class="section"><li><a href="vec-layout.html"><strong aria-hidden="true">9.1.</strong> Layout</a></li><li><a href="vec-alloc.html"><strong aria-hidden="true">9.2.</strong> Allocating</a></li><li><a href="vec-push-pop.html"><strong aria-hidden="true">9.3.</strong> Push and Pop</a></li><li><a href="vec-dealloc.html"><strong aria-hidden="true">9.4.</strong> Deallocating</a></li><li><a href="vec-deref.html"><strong aria-hidden="true">9.5.</strong> Deref</a></li><li><a href="vec-insert-remove.html"><strong aria-hidden="true">9.6.</strong> Insert and Remove</a></li><li><a href="vec-into-iter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="vec-raw.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="vec-drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="vec-zsts.html"><strong aria-hidden="true">9.10.</strong> Handling Zero-Sized Types</a></li><li><a href="vec-final.html"><strong aria-hidden="true">9.11.</strong> Final Code</a></li></ol></li><li><a href="arc-and-mutex.html"><strong aria-hidden="true">10.</strong> Implementing Arc and Mutex</a></li><li><a href="ffi.html"><strong aria-hidden="true">11.</strong> FFI</a></li><li><a href="beneath-std.html"><strong aria-hidden="true">12.</strong> Beneath std</a></li><li><ol class="section"><li><a href="panic-handler.html"><strong aria-hidden="true">12.1.</strong> #[panic_handler]</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="reprrust">repr(Rust)</h1>
+<blockquote>
+<p>原文跟踪<a href="https://github.com/rust-lang-nursery/nomicon/blob/master/src/repr-rust.md">repr-rust.md</a>   Commit: 7f019ec5c87da39fe0b9b5149e413d914528e945</p>
+</blockquote>
+<p>首先，所有类型都以指定的字节数为单位进行对齐。类型的对齐单位确定了哪些地址能有效地存储值。 一个<code>n</code>字节对齐的值只能存储在一个<code>n</code>的整数倍地址上。 因此，2字节对齐意味着你必须存储在偶数地址上，1字节对齐表示你可以存放在任何地址上。对齐单位最小为1字节，通常是2的整数次幂。</p>
+<p>原生类型的对齐单位通常与它们的大小一致，但是这也取决于特定的平台。 例如，在x86上，<code>u64</code>和<code>f64</code>通常是4字节（32位）对齐的。</p>
+<p>类型的大小必须始终是其对齐单位的整数倍。 这确保了该类型的数组可以始终通过偏移其大小的整数倍进行索引。 需要注意的是，对于<a href="https://rustlang-cn.org/office/rust/advrust/data/exotic-sizes.html#dynamically-sized-types-dsts">动态大小的类型</a>，其大小和对齐单位可能无法静态地确定。</p>
+<p>Rust为您提供了以下几种复合类型进行数据布局（译者注：关于<code>和类型</code>与<code>积类型</code>，可参考维基百科词条<a href="https://en.wikipedia.org/wiki/Algebraic_data_type">代数数据类型</a>）：</p>
+<ul>
+<li>structs（命名的积类型）</li>
+<li>tuples（匿名的积类型）</li>
+<li>arrays（同类型的积类型）</li>
+<li>enums （命名的和类型 - 带标签的<code>unions</code>）</li>
+<li>unions（无标签的<code>unions</code>）</li>
+</ul>
+<p>如果一个enum类型的所有成员都没有关联数据，则称这个enum是<strong>field-less</strong>的。</p>
+<p>默认情况下，复合结构体的对齐单位等于它所有成员字段的对齐单位的最大值。因此，Rust会在必要时插入填充字段，以确保所有字段都能够正确地对齐，并且整个类型的大小是其对齐单位的整数倍。例如：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">A</span></span> {
+    a: <span class="hljs-built_in">u8</span>,
+    b: <span class="hljs-built_in">u32</span>,
+    c: <span class="hljs-built_in">u16</span>,
+}
+</div></code></pre>
+<p>将在目标机器上进行32位对齐，将这些原生类型进行以合适大小进行对齐。因此整个结构体的大小是32位的倍数。它可能会变成：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">A</span></span> {
+    a: <span class="hljs-built_in">u8</span>,
+    _pad1: [<span class="hljs-built_in">u8</span>; <span class="hljs-number">3</span>], <span class="hljs-comment">// to align `b`</span>
+    b: <span class="hljs-built_in">u32</span>,
+    c: <span class="hljs-built_in">u16</span>,
+    _pad2: [<span class="hljs-built_in">u8</span>; <span class="hljs-number">2</span>], <span class="hljs-comment">// to make overall size multiple of 4</span>
+}
+</div></code></pre>
+<p>或者可能变成：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">A</span></span> {
+    b: <span class="hljs-built_in">u32</span>,
+    c: <span class="hljs-built_in">u16</span>,
+    a: <span class="hljs-built_in">u8</span>,
+    _pad: <span class="hljs-built_in">u8</span>,
+}
+</div></code></pre>
+<p><strong>毫无意外</strong>，所有数据都存储在结构中，正如您在C中所期望的那样。但是，除了数组（按顺序紧凑排列）之外，默认情况下，Rust没有指定数据结构的内存布局。给出以下两个结构体定义：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">A</span></span> {
+    a: <span class="hljs-built_in">i32</span>,
+    b: <span class="hljs-built_in">u64</span>,
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">B</span></span> {
+    a: <span class="hljs-built_in">i32</span>,
+    b: <span class="hljs-built_in">u64</span>,
+}
+</div></code></pre>
+<p>Rust <strong>保证</strong> <code>A</code>的两个实例会以完全相同的方式布局它们的数据。但目前而言，Rust 不保证A的实例与B的实例具有相同的字段排序或填充字段。</p>
+<p>就上述的A和B而言，这一点似乎很迂腐，但 Rust 的其他几个特性使得语言可以以复杂的方式进行内存布局。</p>
+<p>例如，考虑这个多态结构体：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Foo</span></span>&lt;T, U&gt; {
+    count: <span class="hljs-built_in">u16</span>,
+    data1: T,
+    data2: U,
+}
+</div></code></pre>
+<p>再考虑单态化的<code>Foo&lt;u32, u16&gt;</code>和<code>Foo&lt;u16, u32&gt;</code>。如果Rust以指定的顺序排列字段，我们希望它会填充结构体中的值以满足其对齐要求。因此，如果Rust没有对字段进行重排的话，我们希望它产生以下布局：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Foo</span></span>&lt;<span class="hljs-built_in">u16</span>, <span class="hljs-built_in">u32</span>&gt; {
+    count: <span class="hljs-built_in">u16</span>,
+    data1: <span class="hljs-built_in">u16</span>,
+    data2: <span class="hljs-built_in">u32</span>,
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Foo</span></span>&lt;<span class="hljs-built_in">u32</span>, <span class="hljs-built_in">u16</span>&gt; {
+    count: <span class="hljs-built_in">u16</span>,
+    _pad1: <span class="hljs-built_in">u16</span>,
+    data1: <span class="hljs-built_in">u32</span>,
+    data2: <span class="hljs-built_in">u16</span>,
+    _pad2: <span class="hljs-built_in">u16</span>,
+}
+</div></code></pre>
+<p>后一种情况显然很浪费空间。内存占用的优化需要不同的单态化实例具有不同成员字段排序。</p>
+<p>枚举体使这一考虑变得更加复杂，如：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Foo</span></span> {
+    A(<span class="hljs-built_in">u32</span>),
+    B(<span class="hljs-built_in">u64</span>),
+    C(<span class="hljs-built_in">u8</span>),
+}
+</div></code></pre>
+<p>可能被布局为：</p>
+<pre><code class="language-rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">FooRepr</span></span> {
+    data: <span class="hljs-built_in">u64</span>, <span class="hljs-comment">// this is either a u64, u32, or u8 based on `tag`</span>
+    tag: <span class="hljs-built_in">u8</span>,   <span class="hljs-comment">// 0 = A, 1 = B, 2 = C</span>
+}
+</div></code></pre>
+<p>事实上，它大体就是这样进行布局的（以枚举成员的大小和位置为标签<code>tag</code> ）。</p>
+<p>然而，在某些情况下，这种布局的内存使用率会比较低下。经典的情况是 Rust 的“空指针优化”：由单个外部单元变量（例如<code>None</code>）和（可能嵌套的）非可空指针变量（例如<code>Some(＆T)</code>）组成的枚举使得标签没有存在的必要。空指针可以被安全地解释为单一的<code>(None)</code>变量。最终结果是，例如，<code>size_of::&lt;Option&lt;＆T&gt;&gt;() == size_of::&lt;＆T&gt;()</code>。</p>
+<p>Rust中有许多类型是（或包含）非可空指针，如<code>Box&lt;T&gt;</code>，<code>Vec&lt;T&gt;</code>，<code>String</code>，<code>＆T</code>和<code>＆mut T</code>。同样，可以想象得到，嵌套的枚举体将其标签汇集到单个判别式中，因为根据定义，它们的有效值的范围是有限的。对于枚举，原则上可以使用相当精细的位运算算法来存储嵌套类型中的无效值。因此，特别地，我们现在没有指定枚举的布局方式。</p>
+
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="data.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="exotic-sizes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="data.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="exotic-sizes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

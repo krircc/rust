@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Unsafe Can Do - </title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="meet-safe-and-unsafe.html"><strong aria-hidden="true">1.</strong> Meet Safe and Unsafe</a></li><li><ol class="section"><li><a href="safe-unsafe-meaning.html"><strong aria-hidden="true">1.1.</strong> How Safe and Unsafe Interact</a></li><li><a href="what-unsafe-does.html" class="active"><strong aria-hidden="true">1.2.</strong> What Unsafe Can Do</a></li><li><a href="working-with-unsafe.html"><strong aria-hidden="true">1.3.</strong> Working with Unsafe</a></li></ol></li><li><a href="data.html"><strong aria-hidden="true">2.</strong> Data Layout</a></li><li><ol class="section"><li><a href="repr-rust.html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="exotic-sizes.html"><strong aria-hidden="true">2.2.</strong> Exotically Sized Types</a></li><li><a href="other-reprs.html"><strong aria-hidden="true">2.3.</strong> Other reprs</a></li></ol></li><li><a href="ownership.html"><strong aria-hidden="true">3.</strong> Ownership</a></li><li><ol class="section"><li><a href="references.html"><strong aria-hidden="true">3.1.</strong> References</a></li><li><a href="aliasing.html"><strong aria-hidden="true">3.2.</strong> Aliasing</a></li><li><a href="lifetimes.html"><strong aria-hidden="true">3.3.</strong> Lifetimes</a></li><li><a href="lifetime-mismatch.html"><strong aria-hidden="true">3.4.</strong> Limits of Lifetimes</a></li><li><a href="lifetime-elision.html"><strong aria-hidden="true">3.5.</strong> Lifetime Elision</a></li><li><a href="unbounded-lifetimes.html"><strong aria-hidden="true">3.6.</strong> Unbounded Lifetimes</a></li><li><a href="hrtb.html"><strong aria-hidden="true">3.7.</strong> Higher-Rank Trait Bounds</a></li><li><a href="subtyping.html"><strong aria-hidden="true">3.8.</strong> Subtyping and Variance</a></li><li><a href="dropck.html"><strong aria-hidden="true">3.9.</strong> Drop Check</a></li><li><a href="phantom-data.html"><strong aria-hidden="true">3.10.</strong> PhantomData</a></li><li><a href="borrow-splitting.html"><strong aria-hidden="true">3.11.</strong> Splitting Borrows</a></li></ol></li><li><a href="conversions.html"><strong aria-hidden="true">4.</strong> Type Conversions</a></li><li><ol class="section"><li><a href="coercions.html"><strong aria-hidden="true">4.1.</strong> Coercions</a></li><li><a href="dot-operator.html"><strong aria-hidden="true">4.2.</strong> The Dot Operator</a></li><li><a href="casts.html"><strong aria-hidden="true">4.3.</strong> Casts</a></li><li><a href="transmutes.html"><strong aria-hidden="true">4.4.</strong> Transmutes</a></li></ol></li><li><a href="uninitialized.html"><strong aria-hidden="true">5.</strong> Uninitialized Memory</a></li><li><ol class="section"><li><a href="checked-uninit.html"><strong aria-hidden="true">5.1.</strong> Checked</a></li><li><a href="drop-flags.html"><strong aria-hidden="true">5.2.</strong> Drop Flags</a></li><li><a href="unchecked-uninit.html"><strong aria-hidden="true">5.3.</strong> Unchecked</a></li></ol></li><li><a href="obrm.html"><strong aria-hidden="true">6.</strong> Ownership Based Resource Management</a></li><li><ol class="section"><li><a href="constructors.html"><strong aria-hidden="true">6.1.</strong> Constructors</a></li><li><a href="destructors.html"><strong aria-hidden="true">6.2.</strong> Destructors</a></li><li><a href="leaking.html"><strong aria-hidden="true">6.3.</strong> Leaking</a></li></ol></li><li><a href="unwinding.html"><strong aria-hidden="true">7.</strong> Unwinding</a></li><li><ol class="section"><li><a href="exception-safety.html"><strong aria-hidden="true">7.1.</strong> Exception Safety</a></li><li><a href="poisoning.html"><strong aria-hidden="true">7.2.</strong> Poisoning</a></li></ol></li><li><a href="concurrency.html"><strong aria-hidden="true">8.</strong> Concurrency</a></li><li><ol class="section"><li><a href="races.html"><strong aria-hidden="true">8.1.</strong> Races</a></li><li><a href="send-and-sync.html"><strong aria-hidden="true">8.2.</strong> Send and Sync</a></li><li><a href="atomics.html"><strong aria-hidden="true">8.3.</strong> Atomics</a></li></ol></li><li><a href="vec.html"><strong aria-hidden="true">9.</strong> Implementing Vec</a></li><li><ol class="section"><li><a href="vec-layout.html"><strong aria-hidden="true">9.1.</strong> Layout</a></li><li><a href="vec-alloc.html"><strong aria-hidden="true">9.2.</strong> Allocating</a></li><li><a href="vec-push-pop.html"><strong aria-hidden="true">9.3.</strong> Push and Pop</a></li><li><a href="vec-dealloc.html"><strong aria-hidden="true">9.4.</strong> Deallocating</a></li><li><a href="vec-deref.html"><strong aria-hidden="true">9.5.</strong> Deref</a></li><li><a href="vec-insert-remove.html"><strong aria-hidden="true">9.6.</strong> Insert and Remove</a></li><li><a href="vec-into-iter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="vec-raw.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="vec-drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="vec-zsts.html"><strong aria-hidden="true">9.10.</strong> Handling Zero-Sized Types</a></li><li><a href="vec-final.html"><strong aria-hidden="true">9.11.</strong> Final Code</a></li></ol></li><li><a href="arc-and-mutex.html"><strong aria-hidden="true">10.</strong> Implementing Arc and Mutex</a></li><li><a href="ffi.html"><strong aria-hidden="true">11.</strong> FFI</a></li><li><a href="beneath-std.html"><strong aria-hidden="true">12.</strong> Beneath std</a></li><li><ol class="section"><li><a href="panic-handler.html"><strong aria-hidden="true">12.1.</strong> #[panic_handler]</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="unsafe-rust-%e8%83%bd%e5%81%9a%e4%bb%80%e4%b9%88">Unsafe Rust 能做什么</h1>
+                        <blockquote>
+                        <p>原文跟踪<a href="https://github.com/rust-lang-nursery/nomicon/blob/master/src/what-unsafe-does.md">what-unsafe-does.md</a>   Commit: dd8054bef8c654aaa27ca7979e21aa984fd2abc6</p>
+                        </blockquote>
+                        <p>Usafe Rust 唯一的区别在于，它允许你多做如下事情:</p>
+                        <ul>
+                        <li>解引用原始指针</li>
+                        <li>调用 <code>unsafe</code> 函数（包括 C 函数, 编译器内部预置的和原始内存分配器）</li>
+                        <li>实现 <code>unsafe</code> trait</li>
+                        <li>修改静态变量</li>
+                        <li>访问 <code>union</code> 的字段</li>
+                        </ul>
+                        <p>这就是全部了, 把这些操作归为 Unsafe 的原因是, 滥用这些会导致可怕的未定义的行为. 触发未定义的行为就相当于给予编译器在你程序里做一些武断且不好事情的权力. 你应该<em>完全避免</em>触发任何未定义的行为.</p>
+                        <p>不像 C, Rust 中未定义的行为是限定在一定范围内的. 所有核心语法都会刻意的去预防如下这些事情：</p>
+                        <ul>
+                        <li>解引用 null、悬空或未对齐的指针</li>
+                        <li>读取<a href="uninitialized.html">未初始化的内存</a></li>
+                        <li>打破<a href="references.html">指针别名规则</a></li>
+                        <li>生成无效的原始值：
+                        <ul>
+                        <li>悬空或 null 引用</li>
+                        <li>空 <code>fn</code> 函数指针</li>
+                        <li>非 0 或 1 的布尔值</li>
+                        <li>未定义的 <code>enum</code> 判别式</li>
+                        <li>[0x0, 0xD7FF] 和 [0xE000, 0x10FFFF] 范围外的 <code>char</code> 值</li>
+                        <li>非 utf-8 的 <code>str</code></li>
+                        </ul>
+                        </li>
+                        <li>栈解退（Unwinding）到另一种语言</li>
+                        <li>引起<a href="races.html">数据争用</a></li>
+                        </ul>
+                        <p>就这些而已, 这就是Rust中未定义行为的所有原因. 当然, unsafe 函数和 trait 可以自由随意的去声明一些其他约束, 用来约束程序程序坚持去避免未定义的行为. 举个例子, 内存分配器的 API 声明取消分配那些没分配过的内存, 就是未定义的行为.</p>
+                        <p>但是, 违反这些约束通常只会导致上述问题的其中一个. 一些额外的约束也可以源自编译器内部, 并可以对如何优化代码做出特殊的假设. 举个例子, Vec 和 Box 使用编译器内部预置的函数, 要求它们的指针始终为非 null.</p>
+                        <p>对另一些可以的操作, Rust 也可以相当宽容. Rust 认为以下都是&quot;安全&quot;的:</p>
+                        <ul>
+                        <li>死锁</li>
+                        <li>有<a href="races.html">竞争条件</a></li>
+                        <li>内存泄漏</li>
+                        <li>调用析构函数失败</li>
+                        <li>整型溢出</li>
+                        <li>中止程序</li>
+                        <li>删除生产环境数据库</li>
+                        </ul>
+                        <p>但是, 真这么做了可能就不太好了, 尤其最后一条. Rust 提供了很多工具去阻止或减少这些事情的发生. 但是如果要完全避免这些问题是不切实际的.</p>
+                        
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="safe-unsafe-meaning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="working-with-unsafe.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="safe-unsafe-meaning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="working-with-unsafe.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

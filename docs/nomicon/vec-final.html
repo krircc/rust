@@ -1,0 +1,590 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Final Code - </title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="meet-safe-and-unsafe.html"><strong aria-hidden="true">1.</strong> Meet Safe and Unsafe</a></li><li><ol class="section"><li><a href="safe-unsafe-meaning.html"><strong aria-hidden="true">1.1.</strong> How Safe and Unsafe Interact</a></li><li><a href="what-unsafe-does.html"><strong aria-hidden="true">1.2.</strong> What Unsafe Can Do</a></li><li><a href="working-with-unsafe.html"><strong aria-hidden="true">1.3.</strong> Working with Unsafe</a></li></ol></li><li><a href="data.html"><strong aria-hidden="true">2.</strong> Data Layout</a></li><li><ol class="section"><li><a href="repr-rust.html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="exotic-sizes.html"><strong aria-hidden="true">2.2.</strong> Exotically Sized Types</a></li><li><a href="other-reprs.html"><strong aria-hidden="true">2.3.</strong> Other reprs</a></li></ol></li><li><a href="ownership.html"><strong aria-hidden="true">3.</strong> Ownership</a></li><li><ol class="section"><li><a href="references.html"><strong aria-hidden="true">3.1.</strong> References</a></li><li><a href="aliasing.html"><strong aria-hidden="true">3.2.</strong> Aliasing</a></li><li><a href="lifetimes.html"><strong aria-hidden="true">3.3.</strong> Lifetimes</a></li><li><a href="lifetime-mismatch.html"><strong aria-hidden="true">3.4.</strong> Limits of Lifetimes</a></li><li><a href="lifetime-elision.html"><strong aria-hidden="true">3.5.</strong> Lifetime Elision</a></li><li><a href="unbounded-lifetimes.html"><strong aria-hidden="true">3.6.</strong> Unbounded Lifetimes</a></li><li><a href="hrtb.html"><strong aria-hidden="true">3.7.</strong> Higher-Rank Trait Bounds</a></li><li><a href="subtyping.html"><strong aria-hidden="true">3.8.</strong> Subtyping and Variance</a></li><li><a href="dropck.html"><strong aria-hidden="true">3.9.</strong> Drop Check</a></li><li><a href="phantom-data.html"><strong aria-hidden="true">3.10.</strong> PhantomData</a></li><li><a href="borrow-splitting.html"><strong aria-hidden="true">3.11.</strong> Splitting Borrows</a></li></ol></li><li><a href="conversions.html"><strong aria-hidden="true">4.</strong> Type Conversions</a></li><li><ol class="section"><li><a href="coercions.html"><strong aria-hidden="true">4.1.</strong> Coercions</a></li><li><a href="dot-operator.html"><strong aria-hidden="true">4.2.</strong> The Dot Operator</a></li><li><a href="casts.html"><strong aria-hidden="true">4.3.</strong> Casts</a></li><li><a href="transmutes.html"><strong aria-hidden="true">4.4.</strong> Transmutes</a></li></ol></li><li><a href="uninitialized.html"><strong aria-hidden="true">5.</strong> Uninitialized Memory</a></li><li><ol class="section"><li><a href="checked-uninit.html"><strong aria-hidden="true">5.1.</strong> Checked</a></li><li><a href="drop-flags.html"><strong aria-hidden="true">5.2.</strong> Drop Flags</a></li><li><a href="unchecked-uninit.html"><strong aria-hidden="true">5.3.</strong> Unchecked</a></li></ol></li><li><a href="obrm.html"><strong aria-hidden="true">6.</strong> Ownership Based Resource Management</a></li><li><ol class="section"><li><a href="constructors.html"><strong aria-hidden="true">6.1.</strong> Constructors</a></li><li><a href="destructors.html"><strong aria-hidden="true">6.2.</strong> Destructors</a></li><li><a href="leaking.html"><strong aria-hidden="true">6.3.</strong> Leaking</a></li></ol></li><li><a href="unwinding.html"><strong aria-hidden="true">7.</strong> Unwinding</a></li><li><ol class="section"><li><a href="exception-safety.html"><strong aria-hidden="true">7.1.</strong> Exception Safety</a></li><li><a href="poisoning.html"><strong aria-hidden="true">7.2.</strong> Poisoning</a></li></ol></li><li><a href="concurrency.html"><strong aria-hidden="true">8.</strong> Concurrency</a></li><li><ol class="section"><li><a href="races.html"><strong aria-hidden="true">8.1.</strong> Races</a></li><li><a href="send-and-sync.html"><strong aria-hidden="true">8.2.</strong> Send and Sync</a></li><li><a href="atomics.html"><strong aria-hidden="true">8.3.</strong> Atomics</a></li></ol></li><li><a href="vec.html"><strong aria-hidden="true">9.</strong> Implementing Vec</a></li><li><ol class="section"><li><a href="vec-layout.html"><strong aria-hidden="true">9.1.</strong> Layout</a></li><li><a href="vec-alloc.html"><strong aria-hidden="true">9.2.</strong> Allocating</a></li><li><a href="vec-push-pop.html"><strong aria-hidden="true">9.3.</strong> Push and Pop</a></li><li><a href="vec-dealloc.html"><strong aria-hidden="true">9.4.</strong> Deallocating</a></li><li><a href="vec-deref.html"><strong aria-hidden="true">9.5.</strong> Deref</a></li><li><a href="vec-insert-remove.html"><strong aria-hidden="true">9.6.</strong> Insert and Remove</a></li><li><a href="vec-into-iter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="vec-raw.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="vec-drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="vec-zsts.html"><strong aria-hidden="true">9.10.</strong> Handling Zero-Sized Types</a></li><li><a href="vec-final.html" class="active"><strong aria-hidden="true">9.11.</strong> Final Code</a></li></ol></li><li><a href="arc-and-mutex.html"><strong aria-hidden="true">10.</strong> Implementing Arc and Mutex</a></li><li><a href="ffi.html"><strong aria-hidden="true">11.</strong> FFI</a></li><li><a href="beneath-std.html"><strong aria-hidden="true">12.</strong> Beneath std</a></li><li><ol class="section"><li><a href="panic-handler.html"><strong aria-hidden="true">12.1.</strong> #[panic_handler]</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="%e6%9c%80%e7%bb%88%e4%bb%a3%e7%a0%81">最终代码</h1>
+                        <blockquote>
+                        <p>源：<a href="https://github.com/rust-lang-nursery/nomicon/blob/master/src/vec-final.md">vec-final.md</a>   Commit: f3fb7c9a8f73998aaaab8177562f0c58ff082e37</p>
+                        </blockquote>
+                        <pre><code class="language-rust"><div><span class="hljs-meta">#![feature(ptr_internals)]</span>
+                        <span class="hljs-meta">#![feature(allocator_api)]</span>
+                        <span class="hljs-meta">#![feature(alloc_layout_extra)]</span>
+                        
+                        <span class="hljs-keyword">use</span> std::ptr::{Unique, NonNull, <span class="hljs-keyword">self</span>};
+                        <span class="hljs-keyword">use</span> std::mem;
+                        <span class="hljs-keyword">use</span> std::ops::{Deref, DerefMut};
+                        <span class="hljs-keyword">use</span> std::marker::PhantomData;
+                        <span class="hljs-keyword">use</span> std::alloc::{Alloc, GlobalAlloc, Layout, Global, handle_alloc_error};
+                        
+                        <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RawVec</span></span>&lt;T&gt; {
+                            ptr: Unique&lt;T&gt;,
+                            cap: <span class="hljs-built_in">usize</span>,
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; RawVec&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
+                                <span class="hljs-comment">// !0 is usize::MAX. This branch should be stripped at compile time.</span>
+                                <span class="hljs-keyword">let</span> cap = <span class="hljs-keyword">if</span> mem::size_of::&lt;T&gt;() == <span class="hljs-number">0</span> { !<span class="hljs-number">0</span> } <span class="hljs-keyword">else</span> { <span class="hljs-number">0</span> };
+                        
+                                <span class="hljs-comment">// Unique::empty() doubles as "unallocated" and "zero-sized allocation"</span>
+                                RawVec { ptr: Unique::empty(), cap: cap }
+                            }
+                        
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">grow</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+                                <span class="hljs-keyword">unsafe</span> {
+                                    <span class="hljs-keyword">let</span> elem_size = mem::size_of::&lt;T&gt;();
+                        
+                                    <span class="hljs-comment">// since we set the capacity to usize::MAX when elem_size is</span>
+                                    <span class="hljs-comment">// 0, getting to here necessarily means the Vec is overfull.</span>
+                                    <span class="hljs-built_in">assert!</span>(elem_size != <span class="hljs-number">0</span>, <span class="hljs-string">"capacity overflow"</span>);
+                        
+                                    <span class="hljs-keyword">let</span> (new_cap, ptr) = <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cap == <span class="hljs-number">0</span> {
+                                        <span class="hljs-keyword">let</span> ptr = Global.alloc(Layout::array::&lt;T&gt;(<span class="hljs-number">1</span>).unwrap());
+                                        (<span class="hljs-number">1</span>, ptr)
+                                    } <span class="hljs-keyword">else</span> {
+                                        <span class="hljs-keyword">let</span> new_cap = <span class="hljs-number">2</span> * <span class="hljs-keyword">self</span>.cap;
+                                        <span class="hljs-keyword">let</span> c: NonNull&lt;T&gt; = <span class="hljs-keyword">self</span>.ptr.into();
+                                        <span class="hljs-keyword">let</span> ptr = Global.realloc(c.cast(),
+                                                                 Layout::array::&lt;T&gt;(<span class="hljs-keyword">self</span>.cap).unwrap(),
+                                                                 Layout::array::&lt;T&gt;(new_cap).unwrap().size());
+                                        (new_cap, ptr)
+                                    };
+                        
+                                    <span class="hljs-comment">// If allocate or reallocate fail, oom</span>
+                                    <span class="hljs-keyword">if</span> ptr.is_err() {
+                                        handle_alloc_error(Layout::from_size_align_unchecked(
+                                            new_cap * elem_size,
+                                            mem::align_of::&lt;T&gt;(),
+                                        ))
+                                    }
+                                    <span class="hljs-keyword">let</span> ptr = ptr.unwrap();
+                        
+                                    <span class="hljs-keyword">self</span>.ptr = Unique::new_unchecked(ptr.as_ptr() <span class="hljs-keyword">as</span> *<span class="hljs-keyword">mut</span> _);
+                                    <span class="hljs-keyword">self</span>.cap = new_cap;
+                                }
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> RawVec&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+                                <span class="hljs-keyword">let</span> elem_size = mem::size_of::&lt;T&gt;();
+                                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cap != <span class="hljs-number">0</span> &amp;&amp; elem_size != <span class="hljs-number">0</span> {
+                                    <span class="hljs-keyword">unsafe</span> {
+                                        <span class="hljs-keyword">let</span> c: NonNull&lt;T&gt; = <span class="hljs-keyword">self</span>.ptr.into();
+                                        Global.dealloc(c.cast(),
+                                                       Layout::array::&lt;T&gt;(<span class="hljs-keyword">self</span>.cap).unwrap());
+                                    }
+                                }
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Vec</span></span>&lt;T&gt; {
+                            buf: RawVec&lt;T&gt;,
+                            len: <span class="hljs-built_in">usize</span>,
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">ptr</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; *<span class="hljs-keyword">mut</span> T { <span class="hljs-keyword">self</span>.buf.ptr.as_ptr() }
+                        
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">cap</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">usize</span> { <span class="hljs-keyword">self</span>.buf.cap }
+                        
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() -&gt; <span class="hljs-keyword">Self</span> {
+                                <span class="hljs-built_in">Vec</span> { buf: RawVec::new(), len: <span class="hljs-number">0</span> }
+                            }
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">push</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, elem: T) {
+                                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.len == <span class="hljs-keyword">self</span>.cap() { <span class="hljs-keyword">self</span>.buf.grow(); }
+                        
+                                <span class="hljs-keyword">unsafe</span> {
+                                    ptr::write(<span class="hljs-keyword">self</span>.ptr().offset(<span class="hljs-keyword">self</span>.len <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>), elem);
+                                }
+                        
+                                <span class="hljs-comment">// Can't fail, we'll OOM first.</span>
+                                <span class="hljs-keyword">self</span>.len += <span class="hljs-number">1</span>;
+                            }
+                        
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">pop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; {
+                                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.len == <span class="hljs-number">0</span> {
+                                    <span class="hljs-literal">None</span>
+                                } <span class="hljs-keyword">else</span> {
+                                    <span class="hljs-keyword">self</span>.len -= <span class="hljs-number">1</span>;
+                                    <span class="hljs-keyword">unsafe</span> {
+                                        <span class="hljs-literal">Some</span>(ptr::read(<span class="hljs-keyword">self</span>.ptr().offset(<span class="hljs-keyword">self</span>.len <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>)))
+                                    }
+                                }
+                            }
+                        
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">insert</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, index: <span class="hljs-built_in">usize</span>, elem: T) {
+                                <span class="hljs-built_in">assert!</span>(index &lt;= <span class="hljs-keyword">self</span>.len, <span class="hljs-string">"index out of bounds"</span>);
+                                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.cap() == <span class="hljs-keyword">self</span>.len { <span class="hljs-keyword">self</span>.buf.grow(); }
+                        
+                                <span class="hljs-keyword">unsafe</span> {
+                                    <span class="hljs-keyword">if</span> index &lt; <span class="hljs-keyword">self</span>.len {
+                                        ptr::copy(<span class="hljs-keyword">self</span>.ptr().offset(index <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>),
+                                                  <span class="hljs-keyword">self</span>.ptr().offset(index <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span> + <span class="hljs-number">1</span>),
+                                                  <span class="hljs-keyword">self</span>.len - index);
+                                    }
+                                    ptr::write(<span class="hljs-keyword">self</span>.ptr().offset(index <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>), elem);
+                                    <span class="hljs-keyword">self</span>.len += <span class="hljs-number">1</span>;
+                                }
+                            }
+                        
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">remove</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, index: <span class="hljs-built_in">usize</span>) -&gt; T {
+                                <span class="hljs-built_in">assert!</span>(index &lt; <span class="hljs-keyword">self</span>.len, <span class="hljs-string">"index out of bounds"</span>);
+                                <span class="hljs-keyword">unsafe</span> {
+                                    <span class="hljs-keyword">self</span>.len -= <span class="hljs-number">1</span>;
+                                    <span class="hljs-keyword">let</span> result = ptr::read(<span class="hljs-keyword">self</span>.ptr().offset(index <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>));
+                                    ptr::copy(<span class="hljs-keyword">self</span>.ptr().offset(index <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span> + <span class="hljs-number">1</span>),
+                                              <span class="hljs-keyword">self</span>.ptr().offset(index <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>),
+                                              <span class="hljs-keyword">self</span>.len - index);
+                                    result
+                                }
+                            }
+                        
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">into_iter</span></span>(<span class="hljs-keyword">self</span>) -&gt; IntoIter&lt;T&gt; {
+                                <span class="hljs-keyword">unsafe</span> {
+                                    <span class="hljs-keyword">let</span> iter = RawValIter::new(&amp;<span class="hljs-keyword">self</span>);
+                                    <span class="hljs-keyword">let</span> buf = ptr::read(&amp;<span class="hljs-keyword">self</span>.buf);
+                                    mem::forget(<span class="hljs-keyword">self</span>);
+                        
+                                    IntoIter {
+                                        iter: iter,
+                                        _buf: buf,
+                                    }
+                                }
+                            }
+                        
+                            <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drain</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; Drain&lt;T&gt; {
+                                <span class="hljs-keyword">unsafe</span> {
+                                    <span class="hljs-keyword">let</span> iter = RawValIter::new(&amp;<span class="hljs-keyword">self</span>);
+                        
+                                    <span class="hljs-comment">// this is a mem::forget safety thing. If Drain is forgotten, we just</span>
+                                    <span class="hljs-comment">// leak the whole Vec's contents. Also we need to do this *eventually*</span>
+                                    <span class="hljs-comment">// anyway, so why not do it now?</span>
+                                    <span class="hljs-keyword">self</span>.len = <span class="hljs-number">0</span>;
+                        
+                                    Drain {
+                                        iter: iter,
+                                        vec: PhantomData,
+                                    }
+                                }
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+                                <span class="hljs-keyword">while</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">Some</span>(_) = <span class="hljs-keyword">self</span>.pop() {}
+                                <span class="hljs-comment">// allocation is handled by RawVec</span>
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; Deref <span class="hljs-keyword">for</span> <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+                            <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Target</span></span> = [T];
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">deref</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; &amp;[T] {
+                                <span class="hljs-keyword">unsafe</span> {
+                                    ::std::slice::from_raw_parts(<span class="hljs-keyword">self</span>.ptr(), <span class="hljs-keyword">self</span>.len)
+                                }
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; DerefMut <span class="hljs-keyword">for</span> <span class="hljs-built_in">Vec</span>&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">deref_mut</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; &amp;<span class="hljs-keyword">mut</span> [T] {
+                                <span class="hljs-keyword">unsafe</span> {
+                                    ::std::slice::from_raw_parts_mut(<span class="hljs-keyword">self</span>.ptr(), <span class="hljs-keyword">self</span>.len)
+                                }
+                            }
+                        }
+                        
+                        
+                        
+                        
+                        
+                        <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">RawValIter</span></span>&lt;T&gt; {
+                            start: *<span class="hljs-keyword">const</span> T,
+                            end: *<span class="hljs-keyword">const</span> T,
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; RawValIter&lt;T&gt; {
+                            <span class="hljs-keyword">unsafe</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>(slice: &amp;[T]) -&gt; <span class="hljs-keyword">Self</span> {
+                                RawValIter {
+                                    start: slice.as_ptr(),
+                                    end: <span class="hljs-keyword">if</span> mem::size_of::&lt;T&gt;() == <span class="hljs-number">0</span> {
+                                        ((slice.as_ptr() <span class="hljs-keyword">as</span> <span class="hljs-built_in">usize</span>) + slice.len()) <span class="hljs-keyword">as</span> *<span class="hljs-keyword">const</span> _
+                                    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> slice.len() == <span class="hljs-number">0</span> {
+                                        slice.as_ptr()
+                                    } <span class="hljs-keyword">else</span> {
+                                        slice.as_ptr().offset(slice.len() <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> RawValIter&lt;T&gt; {
+                            <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = T;
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; {
+                                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.start == <span class="hljs-keyword">self</span>.end {
+                                    <span class="hljs-literal">None</span>
+                                } <span class="hljs-keyword">else</span> {
+                                    <span class="hljs-keyword">unsafe</span> {
+                                        <span class="hljs-keyword">let</span> result = ptr::read(<span class="hljs-keyword">self</span>.start);
+                                        <span class="hljs-keyword">self</span>.start = <span class="hljs-keyword">if</span> mem::size_of::&lt;T&gt;() == <span class="hljs-number">0</span> {
+                                            (<span class="hljs-keyword">self</span>.start <span class="hljs-keyword">as</span> <span class="hljs-built_in">usize</span> + <span class="hljs-number">1</span>) <span class="hljs-keyword">as</span> *<span class="hljs-keyword">const</span> _
+                                        } <span class="hljs-keyword">else</span> {
+                                            <span class="hljs-keyword">self</span>.start.offset(<span class="hljs-number">1</span>)
+                                        };
+                                        <span class="hljs-literal">Some</span>(result)
+                                    }
+                                }
+                            }
+                        
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">size_hint</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; (<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">usize</span>&gt;) {
+                                <span class="hljs-keyword">let</span> elem_size = mem::size_of::&lt;T&gt;();
+                                <span class="hljs-keyword">let</span> len = (<span class="hljs-keyword">self</span>.end <span class="hljs-keyword">as</span> <span class="hljs-built_in">usize</span> - <span class="hljs-keyword">self</span>.start <span class="hljs-keyword">as</span> <span class="hljs-built_in">usize</span>)
+                                          / <span class="hljs-keyword">if</span> elem_size == <span class="hljs-number">0</span> { <span class="hljs-number">1</span> } <span class="hljs-keyword">else</span> { elem_size };
+                                (len, <span class="hljs-literal">Some</span>(len))
+                            }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">DoubleEndedIterator</span> <span class="hljs-keyword">for</span> RawValIter&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next_back</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; {
+                                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.start == <span class="hljs-keyword">self</span>.end {
+                                    <span class="hljs-literal">None</span>
+                                } <span class="hljs-keyword">else</span> {
+                                    <span class="hljs-keyword">unsafe</span> {
+                                        <span class="hljs-keyword">self</span>.end = <span class="hljs-keyword">if</span> mem::size_of::&lt;T&gt;() == <span class="hljs-number">0</span> {
+                                            (<span class="hljs-keyword">self</span>.end <span class="hljs-keyword">as</span> <span class="hljs-built_in">usize</span> - <span class="hljs-number">1</span>) <span class="hljs-keyword">as</span> *<span class="hljs-keyword">const</span> _
+                                        } <span class="hljs-keyword">else</span> {
+                                            <span class="hljs-keyword">self</span>.end.offset(-<span class="hljs-number">1</span>)
+                                        };
+                                        <span class="hljs-literal">Some</span>(ptr::read(<span class="hljs-keyword">self</span>.end))
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
+                        
+                        
+                        <span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">IntoIter</span></span>&lt;T&gt; {
+                            _buf: RawVec&lt;T&gt;, <span class="hljs-comment">// we don't actually care about this. Just need it to live.</span>
+                            iter: RawValIter&lt;T&gt;,
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> IntoIter&lt;T&gt; {
+                            <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = T;
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; { <span class="hljs-keyword">self</span>.iter.next() }
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">size_hint</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; (<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">usize</span>&gt;) { <span class="hljs-keyword">self</span>.iter.size_hint() }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">DoubleEndedIterator</span> <span class="hljs-keyword">for</span> IntoIter&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next_back</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; { <span class="hljs-keyword">self</span>.iter.next_back() }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> IntoIter&lt;T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+                                <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> &amp;<span class="hljs-keyword">mut</span> *<span class="hljs-keyword">self</span> {}
+                            }
+                        }
+                        
+                        
+                        
+                        
+                        <span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Drain</span></span>&lt;<span class="hljs-symbol">'a</span>, T: <span class="hljs-symbol">'a</span>&gt; {
+                            vec: PhantomData&lt;&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> <span class="hljs-built_in">Vec</span>&lt;T&gt;&gt;,
+                            iter: RawValIter&lt;T&gt;,
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> Drain&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+                            <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = T;
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; { <span class="hljs-keyword">self</span>.iter.next() }
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">size_hint</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; (<span class="hljs-built_in">usize</span>, <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">usize</span>&gt;) { <span class="hljs-keyword">self</span>.iter.size_hint() }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">DoubleEndedIterator</span> <span class="hljs-keyword">for</span> Drain&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next_back</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;T&gt; { <span class="hljs-keyword">self</span>.iter.next_back() }
+                        }
+                        
+                        <span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">Drop</span> <span class="hljs-keyword">for</span> Drain&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+                            <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">drop</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) {
+                                <span class="hljs-comment">// pre-drain the iter</span>
+                                <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> &amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.iter {}
+                            }
+                        }
+                        
+                        # <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+                        #     tests::create_push_pop();
+                        #     tests::iter_test();
+                        #     tests::test_drain();
+                        #     tests::test_zst();
+                        #     <span class="hljs-built_in">println!</span>(<span class="hljs-string">"All tests finished OK"</span>);
+                        # }
+                        
+                        # <span class="hljs-keyword">mod</span> tests {
+                        #     <span class="hljs-keyword">use</span> super::*;
+                        #     <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">create_push_pop</span></span>() {
+                        #         <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> v = <span class="hljs-built_in">Vec</span>::new();
+                        #         v.push(<span class="hljs-number">1</span>);
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">1</span>, v.len());
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">1</span>, v[<span class="hljs-number">0</span>]);
+                        #         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> v.iter_mut() {
+                        #             *i += <span class="hljs-number">1</span>;
+                        #         }
+                        #         v.insert(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
+                        #         <span class="hljs-keyword">let</span> x = v.pop();
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-literal">Some</span>(<span class="hljs-number">2</span>), x);
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">1</span>, v.len());
+                        #         v.push(<span class="hljs-number">10</span>);
+                        #         <span class="hljs-keyword">let</span> x = v.remove(<span class="hljs-number">0</span>);
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">5</span>, x);
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">1</span>, v.len());
+                        #     }
+                        #
+                        #     <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">iter_test</span></span>() {
+                        #         <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> v = <span class="hljs-built_in">Vec</span>::new();
+                        #         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {
+                        #             v.push(<span class="hljs-built_in">Box</span>::new(i))
+                        #         }
+                        #         <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> iter = v.into_iter();
+                        #         <span class="hljs-keyword">let</span> first = iter.next().unwrap();
+                        #         <span class="hljs-keyword">let</span> last = iter.next_back().unwrap();
+                        #         <span class="hljs-built_in">drop</span>(iter);
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">0</span>, *first);
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">9</span>, *last);
+                        #     }
+                        #
+                        #     <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test_drain</span></span>() {
+                        #         <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> v = <span class="hljs-built_in">Vec</span>::new();
+                        #         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {
+                        #             v.push(<span class="hljs-built_in">Box</span>::new(i))
+                        #         }
+                        #         {
+                        #             <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> drain = v.drain();
+                        #             <span class="hljs-keyword">let</span> first = drain.next().unwrap();
+                        #             <span class="hljs-keyword">let</span> last = drain.next_back().unwrap();
+                        #             <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">0</span>, *first);
+                        #             <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">9</span>, *last);
+                        #         }
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">0</span>, v.len());
+                        #         v.push(<span class="hljs-built_in">Box</span>::new(<span class="hljs-number">1</span>));
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">1</span>, *v.pop().unwrap());
+                        #     }
+                        #
+                        #     <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">test_zst</span></span>() {
+                        #         <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> v = <span class="hljs-built_in">Vec</span>::new();
+                        #         <span class="hljs-keyword">for</span> _i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {
+                        #             v.push(())
+                        #         }
+                        #
+                        #         <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> count = <span class="hljs-number">0</span>;
+                        #
+                        #         <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> v.into_iter() {
+                        #             count += <span class="hljs-number">1</span>
+                        #         }
+                        #
+                        #         <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">10</span>, count);
+                        #     }
+                        # }
+                        </div></code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="vec-zsts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="arc-and-mutex.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="vec-zsts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="arc-and-mutex.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

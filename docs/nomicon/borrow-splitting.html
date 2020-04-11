@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Splitting Borrows - </title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="meet-safe-and-unsafe.html"><strong aria-hidden="true">1.</strong> Meet Safe and Unsafe</a></li><li><ol class="section"><li><a href="safe-unsafe-meaning.html"><strong aria-hidden="true">1.1.</strong> How Safe and Unsafe Interact</a></li><li><a href="what-unsafe-does.html"><strong aria-hidden="true">1.2.</strong> What Unsafe Can Do</a></li><li><a href="working-with-unsafe.html"><strong aria-hidden="true">1.3.</strong> Working with Unsafe</a></li></ol></li><li><a href="data.html"><strong aria-hidden="true">2.</strong> Data Layout</a></li><li><ol class="section"><li><a href="repr-rust.html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="exotic-sizes.html"><strong aria-hidden="true">2.2.</strong> Exotically Sized Types</a></li><li><a href="other-reprs.html"><strong aria-hidden="true">2.3.</strong> Other reprs</a></li></ol></li><li><a href="ownership.html"><strong aria-hidden="true">3.</strong> Ownership</a></li><li><ol class="section"><li><a href="references.html"><strong aria-hidden="true">3.1.</strong> References</a></li><li><a href="aliasing.html"><strong aria-hidden="true">3.2.</strong> Aliasing</a></li><li><a href="lifetimes.html"><strong aria-hidden="true">3.3.</strong> Lifetimes</a></li><li><a href="lifetime-mismatch.html"><strong aria-hidden="true">3.4.</strong> Limits of Lifetimes</a></li><li><a href="lifetime-elision.html"><strong aria-hidden="true">3.5.</strong> Lifetime Elision</a></li><li><a href="unbounded-lifetimes.html"><strong aria-hidden="true">3.6.</strong> Unbounded Lifetimes</a></li><li><a href="hrtb.html"><strong aria-hidden="true">3.7.</strong> Higher-Rank Trait Bounds</a></li><li><a href="subtyping.html"><strong aria-hidden="true">3.8.</strong> Subtyping and Variance</a></li><li><a href="dropck.html"><strong aria-hidden="true">3.9.</strong> Drop Check</a></li><li><a href="phantom-data.html"><strong aria-hidden="true">3.10.</strong> PhantomData</a></li><li><a href="borrow-splitting.html" class="active"><strong aria-hidden="true">3.11.</strong> Splitting Borrows</a></li></ol></li><li><a href="conversions.html"><strong aria-hidden="true">4.</strong> Type Conversions</a></li><li><ol class="section"><li><a href="coercions.html"><strong aria-hidden="true">4.1.</strong> Coercions</a></li><li><a href="dot-operator.html"><strong aria-hidden="true">4.2.</strong> The Dot Operator</a></li><li><a href="casts.html"><strong aria-hidden="true">4.3.</strong> Casts</a></li><li><a href="transmutes.html"><strong aria-hidden="true">4.4.</strong> Transmutes</a></li></ol></li><li><a href="uninitialized.html"><strong aria-hidden="true">5.</strong> Uninitialized Memory</a></li><li><ol class="section"><li><a href="checked-uninit.html"><strong aria-hidden="true">5.1.</strong> Checked</a></li><li><a href="drop-flags.html"><strong aria-hidden="true">5.2.</strong> Drop Flags</a></li><li><a href="unchecked-uninit.html"><strong aria-hidden="true">5.3.</strong> Unchecked</a></li></ol></li><li><a href="obrm.html"><strong aria-hidden="true">6.</strong> Ownership Based Resource Management</a></li><li><ol class="section"><li><a href="constructors.html"><strong aria-hidden="true">6.1.</strong> Constructors</a></li><li><a href="destructors.html"><strong aria-hidden="true">6.2.</strong> Destructors</a></li><li><a href="leaking.html"><strong aria-hidden="true">6.3.</strong> Leaking</a></li></ol></li><li><a href="unwinding.html"><strong aria-hidden="true">7.</strong> Unwinding</a></li><li><ol class="section"><li><a href="exception-safety.html"><strong aria-hidden="true">7.1.</strong> Exception Safety</a></li><li><a href="poisoning.html"><strong aria-hidden="true">7.2.</strong> Poisoning</a></li></ol></li><li><a href="concurrency.html"><strong aria-hidden="true">8.</strong> Concurrency</a></li><li><ol class="section"><li><a href="races.html"><strong aria-hidden="true">8.1.</strong> Races</a></li><li><a href="send-and-sync.html"><strong aria-hidden="true">8.2.</strong> Send and Sync</a></li><li><a href="atomics.html"><strong aria-hidden="true">8.3.</strong> Atomics</a></li></ol></li><li><a href="vec.html"><strong aria-hidden="true">9.</strong> Implementing Vec</a></li><li><ol class="section"><li><a href="vec-layout.html"><strong aria-hidden="true">9.1.</strong> Layout</a></li><li><a href="vec-alloc.html"><strong aria-hidden="true">9.2.</strong> Allocating</a></li><li><a href="vec-push-pop.html"><strong aria-hidden="true">9.3.</strong> Push and Pop</a></li><li><a href="vec-dealloc.html"><strong aria-hidden="true">9.4.</strong> Deallocating</a></li><li><a href="vec-deref.html"><strong aria-hidden="true">9.5.</strong> Deref</a></li><li><a href="vec-insert-remove.html"><strong aria-hidden="true">9.6.</strong> Insert and Remove</a></li><li><a href="vec-into-iter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="vec-raw.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="vec-drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="vec-zsts.html"><strong aria-hidden="true">9.10.</strong> Handling Zero-Sized Types</a></li><li><a href="vec-final.html"><strong aria-hidden="true">9.11.</strong> Final Code</a></li></ol></li><li><a href="arc-and-mutex.html"><strong aria-hidden="true">10.</strong> Implementing Arc and Mutex</a></li><li><a href="ffi.html"><strong aria-hidden="true">11.</strong> FFI</a></li><li><a href="beneath-std.html"><strong aria-hidden="true">12.</strong> Beneath std</a></li><li><ol class="section"><li><a href="panic-handler.html"><strong aria-hidden="true">12.1.</strong> #[panic_handler]</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="%e5%88%86%e8%a7%a3%e5%80%9f%e7%94%a8">分解借用</h1>
+<blockquote>
+<p>源：<a href="https://github.com/rust-lang-nursery/nomicon/blob/master/src/borrow-splitting.md">borrow-splitting.md</a>   Commit: d870b6788ba078ba398f020305ef9210f7cbd740</p>
+</blockquote>
+<p>可变引用的Mutex属性在处理复合类型时能力非常有限。借用检查器只能理解一些简单的东西，而且极易失败。他对结构体还算是充分了解，知道结构体的成员可能被分别借用。所以这段代码现在可以正常工作：</p>
+<pre><code class="language-Rust"><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Foo</span></span> {
+    a: <span class="hljs-built_in">i32</span>,
+    b: <span class="hljs-built_in">i32</span>,
+    c: <span class="hljs-built_in">i32</span>,
+}
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = Foo {a: <span class="hljs-number">0</span>, b: <span class="hljs-number">0</span>, c: <span class="hljs-number">0</span>};
+<span class="hljs-keyword">let</span> a = &amp;<span class="hljs-keyword">mut</span> x.a;
+<span class="hljs-keyword">let</span> b = &amp;<span class="hljs-keyword">mut</span> x.b;
+<span class="hljs-keyword">let</span> c = &amp;x.c;
+*b += <span class="hljs-number">1</span>;
+<span class="hljs-keyword">let</span> c2 = &amp;x.c;
+*a += <span class="hljs-number">10</span>;
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">"{} {} {} {}"</span>, a, b, c, c2);
+</div></code></pre>
+<p>但是，借用检查器对于数组和slice的理解却是一团浆糊，所以这段代码无法通过检查：</p>
+<pre><code class="language-Rust"><div><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> a = &amp;<span class="hljs-keyword">mut</span> x[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">let</span> b = &amp;<span class="hljs-keyword">mut</span> x[<span class="hljs-number">1</span>];
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">"{} {}"</span>, a, b);
+</div></code></pre>
+<pre><code><code><div>error[E0499]: cannot borrow `x[..]` as mutable more than once at a time
+ --&gt; src/lib.rs:4:18
+  |
+3 |     let a = &amp;mut x[0];
+  |                  ---- first mutable borrow occurs here
+4 |     let b = &amp;mut x[1];
+  |                  ^^^^ second mutable borrow occurs here
+5 |     println!(&quot;{} {}&quot;, a, b);
+6 | }
+  | - first borrow ends here
+error: aborting due to previous error
+</div></code></code></pre>
+<p>借用检查器连这个简单的场景都理解不了，那它更不可能理解一些通用容器类型了，比如说树，尤其是出现不同的键对应相同的值的时候。</p>
+<p>为了能“教育”借用检查器我们的所作所为是正确的，我们还是要使用非安全代码。比如，可变slice暴露了一个<code>split_at_mut</code>的方法，它接收一个slice然后返回两个可变slice。一个包括索引值左边所有的值，另一个包含右边所有的值。我们知道这个方法是安全的，因为两个slice没有重叠部分，也就不会出现别名问题。但是它的实现还是要涉及到非安全的内容：</p>
+<pre><code class="language-Rust"><div><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">split_at_mut</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, mid: <span class="hljs-built_in">usize</span>) -&gt; (&amp;<span class="hljs-keyword">mut</span> [T], &amp;<span class="hljs-keyword">mut</span> [T]) {
+    <span class="hljs-keyword">let</span> len = <span class="hljs-keyword">self</span>.len();
+    <span class="hljs-keyword">let</span> ptr = <span class="hljs-keyword">self</span>.as_mut_ptr();
+    <span class="hljs-built_in">assert!</span>(mid &lt;= len);
+    <span class="hljs-keyword">unsafe</span> {
+        (from_raw_parts_mut(ptr, mid)),
+         from_raw_parts_mut(ptr.offset(mid <span class="hljs-keyword">as</span> <span class="hljs-built_in">isize</span>), len - mid))
+    }
+}
+</div></code></pre>
+<p>这有一点难懂。为了避免两个<code>&amp;mut</code>指向相同的值，我们通过裸指针显式创建了两个全新的slice。</p>
+<p>不过迭代器产生可变引用的方法更加难懂。迭代器trait的定义如下：</p>
+<pre><code class="language-Rust"><div><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Iterator</span></span> {
+    typr Item;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt;;
+}
+</div></code></pre>
+<p>这份定义里，<code>Self::Item</code>与<code>slef</code>没有直接关系。也就是说我们可以连续调用<code>next</code>很多次，并且同时保存着所有的结果。对于值的迭代器这么做完全可以，完全符合语义。对于共享引用这么做也没什么问题，因为允许任意过个共享引用指向同一个值（当然迭代器本身需要是独立于被共享内容的对象）。</p>
+<p>但是可变引用就麻烦了。乍一看，可变引用完全不适用这个API，因为那会产生多个指向相同对象的可变引用。</p>
+<p>可实际上它能够正常工作，这是因为迭代器是一个一次性对象。<code>IterMut</code>生成的东西最多只会生成一次，所以实际上我们没有生成多个指向相同数据的可变指针。</p>
+<p>更不可思议的是，可变迭代器对于许多类型的实现甚至不需要非安全代码！</p>
+<p>例如，下面是单向列表的代码：</p>
+<pre><code class="language-Rust"><div><span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Link</span></span>&lt;T&gt; = <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">Box</span>&lt;Node&lt;T&gt;&gt;&gt;;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span>&lt;T&gt; {
+    elem: T,
+    next: Link&lt;T&gt;,
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">LinkedList</span></span>&lt;T&gt; {
+    head: Link&lt;T&gt;,
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">IterMut</span></span>&lt;<span class="hljs-symbol">'a</span>, T: <span class="hljs-symbol">'a</span>&gt;(<span class="hljs-built_in">Option</span>&lt;&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> Node&lt;T&gt;&gt;);
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; LinkedList&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">iter_mut</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; IterMut&lt;T&gt; {
+        IterMut(<span class="hljs-keyword">self</span>.head.as_mut().map(|node| &amp;<span class="hljs-keyword">mut</span> **node))
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> IterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = &amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> T;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.take().map(|node| {
+            <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span> = node.next.as_mut().map(|node| &amp;<span class="hljs-keyword">mut</span> **node);
+            &amp;<span class="hljs-keyword">mut</span> node.elem
+        })
+    }
+}
+</div></code></pre>
+<p>这是可变slice：</p>
+<pre><code class="language-Rust"><div><span class="hljs-keyword">use</span> std::mem;
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">IterMut</span></span>&lt;<span class="hljs-symbol">'a</span>, T: <span class="hljs-symbol">'a</span>&gt;(&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span>[T]);
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> IterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = &amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> T;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">let</span> slice = mem::replace(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>, &amp;<span class="hljs-keyword">mut</span> []);
+        <span class="hljs-keyword">if</span> slice.is_empty() { <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span>; }
+
+        <span class="hljs-keyword">let</span> (l, r) = slice.split_at_mut(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span> = r;
+        l.get_mut(<span class="hljs-number">0</span>)
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">DoubleEndedIterator</span> <span class="hljs-keyword">for</span> IterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next_back</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">let</span> slice = mem::replace(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>, &amp;<span class="hljs-keyword">mut</span> []);
+        <span class="hljs-keyword">if</span> slice.is_empty() { <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span>; }
+
+        <span class="hljs-keyword">let</span> new_len = slice.len() - <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">let</span> (l, r) = slice.split_at_mut(new_len);
+        <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span> = l;
+        r.get_mut(<span class="hljs-number">0</span>)
+    }
+}
+</div></code></pre>
+<p>还有二叉树：</p>
+<pre><code class="language-Rust"><div><span class="hljs-keyword">use</span> std::collections::VecDeque;
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Link</span></span>&lt;T&gt; = <span class="hljs-built_in">Option</span>&lt;<span class="hljs-built_in">Box</span>&lt;Node&lt;T&gt;&gt;&gt;;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span>&lt;T&gt; {
+    elem: T,
+    left: Link&lt;T&gt;,
+    right: Link&lt;T&gt;,
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Tree</span></span>&lt;T&gt; {
+    root: Link&lt;T&gt;,
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NodeIterMut</span></span>&lt;<span class="hljs-symbol">'a</span>, T: <span class="hljs-symbol">'a</span>&gt; {
+    elem: <span class="hljs-built_in">Option</span>&lt;&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> T&gt;,
+    left: <span class="hljs-built_in">Option</span>&lt;&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> Node&lt;T&gt;&gt;,
+    right: <span class="hljs-built_in">Option</span>&lt;&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> Node&lt;T&gt;&gt;,
+}
+
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">State</span></span>&lt;<span class="hljs-symbol">'a</span>, T: <span class="hljs-symbol">'a</span>&gt; {
+    Elem(&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> T),
+    Node(&amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> Node&lt;T&gt;),
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">IterMut</span></span>&lt;<span class="hljs-symbol">'a</span>, T: <span class="hljs-symbol">'a</span>&gt;(VecDeque&lt;NodeIterMut&lt;<span class="hljs-symbol">'a</span>, T&gt;&gt;);
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; Tree&lt;T&gt; {
+    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">iter_mut</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; IterMut&lt;T&gt; {
+        <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> deque = VecDeque::new();
+        <span class="hljs-keyword">self</span>.root.as_mut().map(|root| deque.push_front(root.iter_mut()));
+        IterMut(deque)
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; Node&lt;T&gt; {
+    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">iter_mut</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; NodeIterMut&lt;T&gt; {
+        NodeIterMut {
+            elem: <span class="hljs-literal">Some</span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.elem),
+            left: <span class="hljs-keyword">self</span>.left.as_mut().map(|node| &amp;<span class="hljs-keyword">mut</span> **node),
+            right: <span class="hljs-keyword">self</span>.right.as_mut().map(|node| &amp;<span class="hljs-keyword">mut</span> **node),
+        }
+    }
+}
+
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> NodeIterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = State&lt;<span class="hljs-symbol">'a</span>, T&gt;;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.left.take() {
+            <span class="hljs-literal">Some</span>(node) =&gt; <span class="hljs-literal">Some</span>(State::Node(node)),
+            <span class="hljs-literal">None</span> =&gt; <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.elem.take() {
+                <span class="hljs-literal">Some</span>(elem) =&gt; <span class="hljs-literal">Some</span>(State::Elem(elem)),
+                <span class="hljs-literal">None</span> =&gt; <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.right.take() {
+                    <span class="hljs-literal">Some</span>(node) =&gt; <span class="hljs-literal">Some</span>(State::Node(node)),
+                    <span class="hljs-literal">None</span> =&gt; <span class="hljs-literal">None</span>,
+                }
+            }
+        }
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">DoubleEndedIterator</span> <span class="hljs-keyword">for</span> NodeIterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next_back</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.right.take() {
+            <span class="hljs-literal">Some</span>(node) =&gt; <span class="hljs-literal">Some</span>(State::Node(node)),
+            <span class="hljs-literal">None</span> =&gt; <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.elem.take() {
+                <span class="hljs-literal">Some</span>(elem) =&gt; <span class="hljs-literal">Some</span>(State::Elem(elem)),
+                <span class="hljs-literal">None</span> =&gt; <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.left.take() {
+                    <span class="hljs-literal">Some</span>(node) =&gt; <span class="hljs-literal">Some</span>(State::Node(node)),
+                    <span class="hljs-literal">None</span> =&gt; <span class="hljs-literal">None</span>,
+                }
+            }
+        }
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">Iterator</span> <span class="hljs-keyword">for</span> IterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span> = &amp;<span class="hljs-symbol">'a</span> <span class="hljs-keyword">mut</span> T;
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">loop</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.front_mut().and_then(|node_it| node_it.next()) {
+                <span class="hljs-literal">Some</span>(State::Elem(elem)) =&gt; <span class="hljs-keyword">return</span> <span class="hljs-literal">Some</span>(elem),
+                <span class="hljs-literal">Some</span>(State::Node(node)) =&gt; <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.push_front(node.iter_mut()),
+                <span class="hljs-literal">None</span> =&gt; <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">None</span> = <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.pop_front() { <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span> },
+            }
+        }
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">'a</span>, T&gt; <span class="hljs-built_in">DoubleEndedIterator</span> <span class="hljs-keyword">for</span> IterMut&lt;<span class="hljs-symbol">'a</span>, T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next_back</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt; {
+        <span class="hljs-keyword">loop</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.back_mut().and_then(|node_it| node_it.next_back()) {
+                <span class="hljs-literal">Some</span>(State::Elem(elem)) =&gt; <span class="hljs-keyword">return</span> <span class="hljs-literal">Some</span>(elem),
+                <span class="hljs-literal">Some</span>(State::Node(node)) =&gt; <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.push_back(node.iter_mut()),
+                <span class="hljs-literal">None</span> =&gt; <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">None</span> = <span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>.pop_back() { <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span> },
+            }
+        }
+    }
+}
+</div></code></pre>
+<p>所有这些都是完全安全而且能稳定运行的！这已经超出了我们之前看过的简单结构体的例子：Rust能够理解你把一个可变引用安全地分解为多个部分。接下来我们可以通过Option永久地访问这个引用（或者像对于slice那样，替换为一个空的slice）。</p>
+
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="phantom-data.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="conversions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="phantom-data.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="conversions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
